@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroDelay — Parametric Insurance for Gig Workers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">DEVTrails 2026 · Guidewire Hackathon</div>
+      <h1 class="hero-title">Zero<span>Delay</span></h1>
+      <p class="hero-tagline">Disruption hits. Money lands. Zero delay.</p>
+      <p class="hero-desc">Parametric income insurance for India's 7 million gig delivery workers. No claim forms. No waiting. Automatic UPI payouts triggered by real-world data.</p>
+      <button class="hero-cta" onclick="document.getElementById('app-section').scrollIntoView({behavior:'smooth'})">See live demo ↓</button>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-val">7M+</div><div class="stat-label">uninsured gig workers</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-val">₹30</div><div class="stat-label">weekly premium</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-val">₹2,000</div><div class="stat-label">weekly coverage</div></div>
+        <div class="stat-div"></div>
+        <div class="stat"><div class="stat-val">&lt;5 min</div><div class="stat-label">payout time</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-section" id="app-section">
+    <div class="app-wrap">
+
+      <div class="app-nav">
+        <div class="logo">Zero<span>Delay</span></div>
+        <div class="nav-mid"><span class="live-dot"></span><span class="live-text">Live Demo</span></div>
+        <div class="city-tag">Chennai Zone</div>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab active" data-tab="dashboard"><span class="ti">◈</span><span class="tl">Dashboard</span></button>
+        <button class="tab" data-tab="trigger"><span class="ti">⚡</span><span class="tl">Simulator</span></button>
+        <button class="tab" data-tab="risk"><span class="ti">◎</span><span class="tl">AI Engine</span></button>
+        <button class="tab" data-tab="policies"><span class="ti">◻</span><span class="tl">Policies</span></button>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="section visible" id="tab-dashboard">
+        <div class="metric-grid">
+          <div class="metric-card"><div class="ml">Active workers</div><div class="mv">4,820</div><div class="ms">Chennai zone</div></div>
+          <div class="metric-card"><div class="ml">Weekly premiums</div><div class="mv">₹1.44L</div><div class="ms">collected this week</div></div>
+          <div class="metric-card accent" id="payout-card"><div class="ml">Payouts triggered</div><div class="mv" id="d-payouts">₹0</div><div class="ms" id="d-payout-sub">No disruptions today</div></div>
+        </div>
+
+        <div class="panel">
+          <div class="ph"><h3>Registered workers</h3><span class="pill green">4 insured</span></div>
+          <div class="worker-row"><div class="av teal">RK</div><div class="wi"><div class="wn">Ravi Kumar</div><div class="wm">Swiggy · Velachery · ₹6,000/wk</div></div><span class="pill green">Insured</span></div>
+          <div class="worker-row"><div class="av blue">MI</div><div class="wi"><div class="wn">Mohammed Imran</div><div class="wm">Zomato · Anna Nagar · ₹5,200/wk</div></div><span class="pill green">Insured</span></div>
+          <div class="worker-row"><div class="av coral">PS</div><div class="wi"><div class="wn">Priya Selvam</div><div class="wm">Blinkit · T Nagar · ₹4,800/wk</div></div><span class="pill green">Insured</span></div>
+          <div class="worker-row last"><div class="av amber">AJ</div><div class="wi"><div class="wn">Arjun Jayakumar</div><div class="wm">Amazon · Tambaram · ₹5,500/wk</div></div><span class="pill green">Insured</span></div>
+        </div>
+
+        <div class="panel">
+          <div class="ph"><h3>Recent claims</h3></div>
+          <div class="table-scroll">
+            <table class="ct">
+              <thead><tr><th>Date</th><th>Worker</th><th>Trigger</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Mar 15</td><td>Ravi Kumar</td><td>Heavy rain (88mm)</td><td>₹400</td><td><span class="pill green">Paid</span></td></tr>
+                <tr><td>Mar 12</td><td>All workers</td><td>Flood alert</td><td>₹500 each</td><td><span class="pill green">Paid</span></td></tr>
+                <tr><td>Mar 8</td><td>Mohammed Imran</td><td>Heatwave (44°C)</td><td>₹300</td><td><span class="pill green">Paid</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trigger Simulator -->
+      <div class="section" id="tab-trigger">
+        <div class="panel">
+          <div class="ph"><h3>Disruption simulator</h3><span class="pill blue">Real-time</span></div>
+          <p class="pdesc">Drag any slider past its trigger threshold to simulate a disruption event and watch the automated payout flow.</p>
+          <div class="trigger-grid">
+            <div class="trigger-card" id="rain-card">
+              <div class="tc-top"><span class="tc-icon">🌧</span><span class="tc-name">Rainfall</span><span class="tc-badge safe" id="rain-badge">Safe</span></div>
+              <input type="range" min="0" max="150" value="30" id="rain-slider">
+              <div class="tc-readout"><span class="tc-val" id="rain-val">30 mm</span><span class="tc-limit">limit &gt;70mm → ₹400</span></div>
+            </div>
+            <div class="trigger-card" id="temp-card">
+              <div class="tc-top"><span class="tc-icon">🌡</span><span class="tc-name">Temperature</span><span class="tc-badge safe" id="temp-badge">Safe</span></div>
+              <input type="range" min="20" max="55" value="32" id="temp-slider">
+              <div class="tc-readout"><span class="tc-val" id="temp-val">32°C</span><span class="tc-limit">limit &gt;42°C → ₹300</span></div>
+            </div>
+            <div class="trigger-card" id="aqi-card">
+              <div class="tc-top"><span class="tc-icon">💨</span><span class="tc-name">Air Quality</span><span class="tc-badge safe" id="aqi-badge">Safe</span></div>
+              <input type="range" min="0" max="500" value="120" id="aqi-slider">
+              <div class="tc-readout"><span class="tc-val" id="aqi-val">AQI 120</span><span class="tc-limit">limit AQI &gt;350 → ₹300</span></div>
+            </div>
+            <div class="trigger-card" id="flood-card">
+              <div class="tc-top"><span class="tc-icon">🌊</span><span class="tc-name">Flood Alert</span><span class="tc-badge safe" id="flood-badge">Safe</span></div>
+              <input type="range" min="0" max="3" value="0" step="1" id="flood-slider">
+              <div class="tc-readout"><span class="tc-val" id="flood-val">None</span><span class="tc-limit">level 2+ → ₹500</span></div>
+            </div>
+          </div>
+
+          <button class="sim-btn" id="sim-btn">⚡ Simulate conditions</button>
+
+          <div class="payout-box" id="payout-box">
+            <div class="pb-check">✓</div>
+            <div class="pb-amount" id="payout-amount">₹400</div>
+            <div class="pb-label">sent via UPI to 4 workers</div>
+            <div class="pb-sub">Zero manual steps · Fraud check passed · Instant transfer</div>
+          </div>
+
+          <div class="log-wrap">
+            <div class="log-header">System log</div>
+            <div class="log-body" id="sim-log">
+              <div class="log-line dim">→ Ready. Adjust sliders and hit simulate.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Risk Engine -->
+      <div class="section" id="tab-risk">
+        <div class="panel">
+          <div class="ph"><h3>Zone risk scores — Chennai</h3><span class="pill amber">ML Model v2.1</span></div>
+          <div class="risk-list">
+            <div class="rr"><span class="rname">Velachery</span><div class="rbar-wrap"><div class="rbar r" style="width:82%"></div></div><span class="rscore r-t">82 · High</span></div>
+            <div class="rr"><span class="rname">Tambaram</span><div class="rbar-wrap"><div class="rbar a" style="width:74%"></div></div><span class="rscore a-t">74 · Med-High</span></div>
+            <div class="rr"><span class="rname">Adyar</span><div class="rbar-wrap"><div class="rbar a" style="width:67%"></div></div><span class="rscore a-t">67 · Medium</span></div>
+            <div class="rr"><span class="rname">Anna Nagar</span><div class="rbar-wrap"><div class="rbar g" style="width:55%"></div></div><span class="rscore g-t">55 · Low-Med</span></div>
+            <div class="rr"><span class="rname">T Nagar</span><div class="rbar-wrap"><div class="rbar g" style="width:48%"></div></div><span class="rscore g-t">48 · Low</span></div>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card"><div class="ml">Velachery premium</div><div class="mv">₹42/wk</div><div class="ms">+40% risk uplift</div></div>
+          <div class="metric-card"><div class="ml">T Nagar premium</div><div class="mv">₹26/wk</div><div class="ms">-13% discount</div></div>
+          <div class="metric-card"><div class="ml">Fraud signals</div><div class="mv">3</div><div class="ms">detected this week</div></div>
+          <div class="metric-card"><div class="ml">Model accuracy</div><div class="mv">91%</div><div class="ms">backtested · 2yr data</div></div>
+        </div>
+
+        <div class="panel">
+          <div class="ph"><h3>AI data sources</h3></div>
+          <div class="src-row"><span>Historical rainfall data (IMD)</span><span class="pill green">Connected</span></div>
+          <div class="src-row"><span>Flood zone mapping (NDMA)</span><span class="pill green">Connected</span></div>
+          <div class="src-row"><span>AQI sensor network</span><span class="pill green">Connected</span></div>
+          <div class="src-row"><span>OpenWeather API</span><span class="pill green">Connected</span></div>
+          <div class="src-row last"><span>Government curfew alerts</span><span class="pill amber">Beta</span></div>
+        </div>
+      </div>
+
+      <!-- Policies -->
+      <div class="section" id="tab-policies">
+        <div class="panel">
+          <div class="ph"><h3>Active policy triggers</h3><span class="pill green">5 events covered</span></div>
+          <div class="pol-row"><div class="pol-icon bi">🌧</div><div class="pol-info"><div class="pol-name">Heavy rain protection</div><div class="pol-meta">Triggers at &gt;70mm/hr · OpenWeather API · All zones</div></div><div class="pol-amt">₹400</div></div>
+          <div class="pol-row"><div class="pol-icon ai">☀</div><div class="pol-info"><div class="pol-name">Heatwave protection</div><div class="pol-meta">Triggers at &gt;42°C · IMD data · All zones</div></div><div class="pol-amt">₹300</div></div>
+          <div class="pol-row"><div class="pol-icon gi">💨</div><div class="pol-info"><div class="pol-name">Severe pollution</div><div class="pol-meta">Triggers at AQI &gt;350 · AQI API · All zones</div></div><div class="pol-amt">₹300</div></div>
+          <div class="pol-row"><div class="pol-icon bi">🌊</div><div class="pol-info"><div class="pol-name">Flood / waterlogging</div><div class="pol-meta">Level 2+ govt alert · NDMA integration</div></div><div class="pol-amt">₹500</div></div>
+          <div class="pol-row last"><div class="pol-icon ci">🔒</div><div class="pol-info"><div class="pol-name">Curfew / zone shutdown</div><div class="pol-meta">Government notification · Auto-verified</div></div><div class="pol-amt">₹500</div></div>
+          <div class="pol-footer">
+            <div class="pf"><div class="pfl">Weekly premium</div><div class="pfv">₹30</div></div>
+            <div class="pf"><div class="pfl">Max coverage</div><div class="pfv">₹2,000/wk</div></div>
+            <div class="pf"><div class="pfl">Processing</div><div class="pfv">Automatic</div></div>
+            <div class="pf"><div class="pfl">Payout time</div><div class="pfv">&lt; 5 min</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="logo">Zero<span>Delay</span></div>
+    <div class="ft">Arijit Das · Sourashis Sabud · Sanskriti Ranjan · Shivansh Dhingra</div>
+    <div class="ft">Guidewire DEVTrails 2026 Hackathon</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
